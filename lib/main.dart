@@ -47,7 +47,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppStateProvider(
       child: MaterialApp(
-        title: 'Lifter',
+        title: 'StrongLift',
         theme: theme,
         builder: BotToastInit(),
         navigatorObservers: [BotToastNavigatorObserver()],

@@ -1,4 +1,4 @@
-# Lifter
+# Stronglift - clone
 
 An opensource workout app made with Flutter
 
