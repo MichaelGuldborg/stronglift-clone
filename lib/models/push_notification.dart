@@ -1,4 +1,4 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 
 class PushNotification {
   final String? id;
@@ -29,7 +29,7 @@ class PushNotification {
     );
   }
 
-  factory PushNotification.fromRemoteMessage(RemoteMessage message) {
+  factory PushNotification.fromRemoteMessage(dynamic message) {
     return PushNotification(
       id: message.messageId,
       type: message.messageType,

@@ -1,7 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lifter/constants/routes.dart';
@@ -19,7 +17,7 @@ import 'package:lifter/pages/workout/schedule_edit_page.dart';
 import 'package:lifter/pages/workout/workout_edit_page.dart';
 import 'package:lifter/pages/workout/workout_page.dart';
 import 'package:lifter/states/app_state_provider.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
@@ -30,10 +28,10 @@ void main() async {
   );
 
   // Setup firebase crashlytics
-  if (!kIsWeb) {
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-    FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(kReleaseMode);
-  }
+  // if (!kIsWeb) {
+  //   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  //   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(kReleaseMode);
+  // }
 
   // Disable horizontal orientation
   SystemChrome.setPreferredOrientations([
@@ -51,6 +49,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppStateProvider(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'StrongLift',
         theme: theme,
         builder: BotToastInit(),
@@ -65,7 +64,8 @@ class App extends StatelessWidget {
           Routes.authLoginEmail: (context) => const AuthLoginEmailPage(),
           Routes.authRegister: (context) => const AuthRegisterPage(),
           Routes.authRegisterEmail: (context) => const AuthRegisterEmailPage(),
-          Routes.authForgotPassword: (context) => const AuthForgotPasswordPage(),
+          Routes.authForgotPassword: (context) =>
+              const AuthForgotPasswordPage(),
 
           // home
           Routes.home: (context) => HomePage(),

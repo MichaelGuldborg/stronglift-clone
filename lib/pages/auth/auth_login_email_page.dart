@@ -86,13 +86,13 @@ class _AuthLoginEmailPageState extends State<AuthLoginEmailPage> {
               }
 
               setState(() => _loading = true);
-              final response = await FirebaseAuth.instance
+              final UserCredential? response = await FirebaseAuth.instance
                   .signInWithEmailAndPassword(email: email, password: password)
                   .catchError((error) {
                 showError(error.toString());
               });
               setState(() => _loading = false);
-              if (response.user == null) {
+              if (response?.user == null) {
                 return;
               }
 

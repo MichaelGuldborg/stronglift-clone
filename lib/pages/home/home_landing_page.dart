@@ -20,7 +20,7 @@ class HomeLandingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Lifter', style: TextStyles.title),
+        title: Text('Stronglift Clone', style: TextStyles.title),
         actions: [
           SecondaryButton(
             text: 'Edit',

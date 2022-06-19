@@ -1,10 +1,10 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 
 class Analytics {
-  static final _firebaseAnalytics = FirebaseAnalytics();
+  // static final _firebaseAnalytics = FirebaseAnalytics();
 
-  static get firebaseAnalytics => _firebaseAnalytics;
+  // static get firebaseAnalytics => _firebaseAnalytics;
 
   static bool get skip => kDebugMode;
 
@@ -15,7 +15,7 @@ class Analytics {
 
   static Future<void> trackEvent(String name) async {
     if (skip) return;
-    _firebaseAnalytics.logEvent(name: name);
+    // _firebaseAnalytics.logEvent(name: name);
   }
 
   static Future<void> trackEventCheck(bool check, String name) async {
