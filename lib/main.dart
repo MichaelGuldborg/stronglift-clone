@@ -19,11 +19,15 @@ import 'package:lifter/pages/workout/schedule_edit_page.dart';
 import 'package:lifter/pages/workout/workout_edit_page.dart';
 import 'package:lifter/pages/workout/workout_page.dart';
 import 'package:lifter/states/app_state_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   // Initialize firebase
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Setup firebase crashlytics
   if (!kIsWeb) {

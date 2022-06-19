@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lifter/components/buttons/primary_button.dart';
+import 'package:lifter/constants/routes.dart';
 import 'package:lifter/pages/history/HistoryPage.dart';
 import 'package:lifter/pages/home/home_bottom_navigation.dart';
 import 'package:lifter/pages/home/home_landing_page.dart';
@@ -34,7 +36,17 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 HomeLandingPage(),
                 HistoryPage(),
-                Container(),
+                Container(
+                  child: Center(
+                    child: PrimaryButton(
+                      text: 'Logout',
+                      onPressed: () {
+                        FirebaseAuthFunctions.signOut();
+                        Navigator.pushReplacementNamed(context, Routes.authLoginEmail);
+                      },
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

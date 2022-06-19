@@ -21,7 +21,11 @@ class _AuthRegisterPageState extends State<AuthRegisterPage> {
   int currentIndex = 0;
   RegisterRequest request = RegisterRequest();
 
-  void back() {
+  Future<bool> back() async {
+    if(_controller.offset.floor() == 0){
+      Navigator.pushReplacementNamed(context, Routes.authLoginEmail);
+      return true;
+    }
     _controller.previousPage(
       duration: Duration(milliseconds: 400),
       curve: Curves.easeOut,
@@ -29,6 +33,7 @@ class _AuthRegisterPageState extends State<AuthRegisterPage> {
     setState(() {
       currentIndex = max(0, currentIndex - 1);
     });
+    return false;
   }
 
   void next() {
@@ -44,11 +49,7 @@ class _AuthRegisterPageState extends State<AuthRegisterPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {
-        if (_controller.offset.floor() == 0) return true;
-        back();
-        return false;
-      },
+      onWillPop: back,
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(leading: BackButton(color: Colors.white)),
@@ -78,7 +79,11 @@ class _AuthRegisterPageState extends State<AuthRegisterPage> {
                     AuthRegisterBirthDateView(
                       onConfirm: (birthDate) {
                         request.birthDate = birthDate;
-                        Navigator.pushNamed(context, Routes.authRegisterEmail, arguments: request);
+                        Navigator.pushReplacementNamed(
+                          context,
+                          Routes.authRegisterEmail,
+                          arguments: request,
+                        );
                       },
                     ),
                   ],
@@ -96,7 +101,9 @@ class _AuthRegisterPageState extends State<AuthRegisterPage> {
                       margin: EdgeInsets.symmetric(horizontal: 4),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: isActive ? Colors.white.withOpacity(0.85) : Colors.white30,
+                        color: isActive
+                            ? Colors.white.withOpacity(0.85)
+                            : Colors.white30,
                       ),
                     );
                   }),

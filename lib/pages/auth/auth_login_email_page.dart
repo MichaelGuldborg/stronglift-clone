@@ -62,6 +62,9 @@ class _AuthLoginEmailPageState extends State<AuthLoginEmailPage> {
       bottom: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          AuthTextButton(text: 'Register a new user?', onPressed: ()  {
+            Navigator.pushReplacementNamed(context, Routes.authRegister);
+          }),
           AuthButton(
             text: 'Log ind',
             onPressed: () async {

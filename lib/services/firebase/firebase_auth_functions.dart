@@ -73,4 +73,8 @@ class FirebaseAuthFunctions {
 
     await FirestoreRef.users.doc(currentUser.uid).update(data);
   }
+
+  static Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }
