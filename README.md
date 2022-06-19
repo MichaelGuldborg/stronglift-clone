@@ -23,10 +23,10 @@
 ## Preview
 
 <p align="center">
-	<img src="screenshots/screenshot_1.png" width="320">
-	<img src="screenshots/screenshot_2.png" width="320">
-	<img src="screenshots/screenshot_3.png" width="320">
-	<img src="screenshots/screenshot_4.png" width="320">
+	<img src="screenshots/screenshot_1.png" width="180px">
+	<img src="screenshots/screenshot_2.png" width="180px">
+	<img src="screenshots/screenshot_3.png" width="180px">
+	<img src="screenshots/screenshot_4.png" width="180px">
 </p>
 
 
